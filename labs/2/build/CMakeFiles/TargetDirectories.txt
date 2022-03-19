@@ -1,0 +1,5 @@
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/2/build/CMakeFiles/rebuild_cache.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/2/build/CMakeFiles/prog.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/2/build/CMakeFiles/edit_cache.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/2/build/CMakeFiles/fork.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/2/build/CMakeFiles/clone.dir

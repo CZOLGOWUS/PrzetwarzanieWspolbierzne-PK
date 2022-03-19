@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/clone.dir/clone.c.o CMakeFiles/clone.dir/pomiar_czasu.c.o  -o clone 

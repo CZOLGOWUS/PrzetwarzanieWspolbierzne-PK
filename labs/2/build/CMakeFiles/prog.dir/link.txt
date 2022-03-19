@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/prog.dir/prog.c.o  -o prog 

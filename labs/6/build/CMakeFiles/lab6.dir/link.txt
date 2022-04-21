@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/lab6.dir/src/main.cpp.o  -o lab6   -L"/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/include/matrix"  -Wl,-rpath,"/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/include/matrix" include/matrix/libmatrix.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so 

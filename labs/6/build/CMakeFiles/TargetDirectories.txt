@@ -1,0 +1,6 @@
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/build/CMakeFiles/rebuild_cache.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/build/CMakeFiles/edit_cache.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/build/CMakeFiles/lab6.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/build/include/matrix/CMakeFiles/rebuild_cache.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/build/include/matrix/CMakeFiles/edit_cache.dir
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/build/include/matrix/CMakeFiles/matrix.dir

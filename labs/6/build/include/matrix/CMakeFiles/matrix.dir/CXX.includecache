@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/include/matrix/Matrix.cpp
+Matrix.hpp
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/include/matrix/Matrix.hpp
+omp.h
+-
+
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/6/include/matrix/Matrix.hpp
+iostream
+-
+iomanip
+-
+math.h
+-
+string
+-
+fstream
+-
+list
+-
+omp.h
+-
+

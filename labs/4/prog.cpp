@@ -75,6 +75,7 @@ void* erase_next_multiple(void* arg)
 	{
 		ref->m_naturals.at(current_number * i) = -1;
 	}
+
 	return nullptr;
 
 }
@@ -112,14 +113,6 @@ int main(int arg, char* argv[])
 	{
 		cout << refArr.m_naturals[i] << "->" << ((isPrime(refArr.m_naturals[i]) == 1) ? "true": "false")  << "  \n";
 	}
-	
-
-	// std::vector<int>::iterator new_end = std::remove(refArr.m_naturals.begin(),refArr.m_naturals.end(),-1);
-
-	// for(std::vector<int>::iterator it = refArr.m_naturals.begin(); it != new_end ; it++)
-	// {
-	// 	cout << *it << ' ';
-	// }
 
 	return 0;
 	

@@ -311,7 +311,7 @@ Matrix* Matrix::multiParallelFirstLoop(const  Matrix& m2) const
 
     Matrix* MultiM = new Matrix(this->_xSize, m2._ySize, (double)0);
 
-    #pragma omp parallel for schedule(static) num_threads(10) 
+    #pragma omp parallel for schedule(static,5) num_threads(7) 
     for (int i = 0; i < this->_xSize; i++)
     {
         for (int j = 0; j < m2._ySize; j++)

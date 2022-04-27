@@ -6,7 +6,7 @@
 #define STARTING_ROWS 100
 #define STARTING_COLLS 200
 #define MAX_ROWS_AND_COLLS 1000
-#define INCREMENT_ROWS_COLLS 100;
+#define INCREMENT_ROWS_COLLS 100
 
 void writeResultToFile(uint16_t number_of_elem, std::string strategy, double time)
 {
@@ -48,7 +48,7 @@ int main()
 
     printf("0 = no loop was parallel\n1 = first loop only\n2 = second loop only\n23 = second and third loop \netc.\n\n");
     printf("=================== 0 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);
@@ -70,7 +70,7 @@ int main()
 
 
     printf("=================== 1 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);
@@ -92,7 +92,7 @@ int main()
 
 
     printf("=================== 2 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);
@@ -115,7 +115,7 @@ int main()
 
 
     printf("=================== 3 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);
@@ -138,7 +138,7 @@ int main()
 
 
     printf("=================== 12 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);
@@ -161,7 +161,7 @@ int main()
 
 
     printf("=================== 123 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);
@@ -183,7 +183,7 @@ int main()
 
 
     printf("=================== 23 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);
@@ -206,7 +206,7 @@ int main()
 
 
     printf("=================== 13 loop ====================\n");
-    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=100, j += 100)
+    for (uint16_t j = STARTING_ROWS, i = STARTING_COLLS; i < MAX_ROWS_AND_COLLS; i+=INCREMENT_ROWS_COLLS, j += INCREMENT_ROWS_COLLS)
     {
         Matrix A(i,j,2);
         Matrix B(j,i,10);

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/lab7.dir/src/main.cpp.o  -o lab7   -L"/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/7/include/matrix"  -Wl,-rpath,"/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/7/include/matrix" include/matrix/libmatrix.a /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so 

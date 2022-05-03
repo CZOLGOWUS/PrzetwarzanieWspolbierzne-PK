@@ -6,7 +6,8 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-#define VEC_SIZE 1000000000
+
+#define VEC_SIZE 100000000
 
 
 Matrix* createRandomVector(size_t size)
@@ -50,20 +51,31 @@ Matrix* multiVec123(const Matrix& m1, const Matrix& m2)
 
     Matrix* multiM = new Matrix(m1.rows(), 1,  0.0);
 
+    double t1 = 0, t2 = 0;
+
+    t1 = omp_get_wtime();
     for (int j = 0; j < multiM->rows(); j++)
     {
         multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
     }
+    t2 = omp_get_wtime();
+    cout << "for no parallel 1 loop: " << t2-t1 << "s\n";
+
+    t1 = omp_get_wtime();
+    for (int j = 0; j < multiM->rows(); j++)
+    {
+        multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
+    }
+    t2 = omp_get_wtime();
+    cout << "for no parallel 2 loop: " << t2-t1 << "s\n";
     
+    t1 = omp_get_wtime();
     for (int j = 0; j < multiM->rows(); j++)
     {
         multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
     }
-    
-    for (int j = 0; j < multiM->rows(); j++)
-    {
-        multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
-    }
+    t2 = omp_get_wtime();
+    cout << "for no parallel 3 loop: " << t2-t1 << "s\n";
 
     return multiM;
 }
@@ -79,23 +91,34 @@ Matrix* multiVecOMP123(const Matrix& m1, const Matrix& m2)
 
     Matrix* multiM = new Matrix(m1.rows(), 1,  0.0);
 
-    #pragma omp parallel for
-    for (int j = 0; j < multiM->rows(); j++)
-    {
-        multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
-    }
+    double t1 = 0, t2 =0;
 
+    t1 = omp_get_wtime();
     #pragma omp parallel for
     for (int j = 0; j < multiM->rows(); j++)
     {
         multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
     }
+    t2 = omp_get_wtime();
+    cout << "for OMP parallel 1 loop: " << t2-t1 << "s\n";
 
+    t1 = omp_get_wtime();
     #pragma omp parallel for
     for (int j = 0; j < multiM->rows(); j++)
     {
         multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
     }
+    t2 = omp_get_wtime();
+    cout << "for OMP parallel 2 loop: " << t2-t1 << "s\n";
+
+    t1 = omp_get_wtime();
+    #pragma omp parallel for
+    for (int j = 0; j < multiM->rows(); j++)
+    {
+        multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
+    }
+    t2 = omp_get_wtime();
+    cout << "for OMP parallel 3 loop: " << t2-t1 << "s\n";
 
     return multiM;
 }
@@ -112,23 +135,34 @@ Matrix* multiVecSIMD123(const Matrix& m1, const Matrix& m2)
 
     Matrix* multiM = new Matrix(m1.rows(), 1,  0.0);
 
-    #pragma omp simd
-    for (int j = 0; j < multiM->rows(); j++)
-    {
-        multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
-    }
+    double t1 = 0, t2 =0;
 
+    t1 = omp_get_wtime();
     #pragma omp simd
     for (int j = 0; j < multiM->rows(); j++)
     {
         multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
     }
+    t2 = omp_get_wtime();
+    cout << "for SIMD parallel 1 loop: " << t2-t1 << "s\n";
 
+    t1 = omp_get_wtime();
     #pragma omp simd
     for (int j = 0; j < multiM->rows(); j++)
     {
         multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
     }
+    t2 = omp_get_wtime();
+    cout << "for SIMD parallel 2 loop: " << t2-t1 << "s\n";
+
+    t1 = omp_get_wtime();
+    #pragma omp simd
+    for (int j = 0; j < multiM->rows(); j++)
+    {
+        multiM->set(j,0, m1.get(j,0) * m2.get(j,0) ); 
+    }
+    t2 = omp_get_wtime();
+    cout << "for SIMD parallel 3 loop: " << t2-t1 << "s\n";
 
     return multiM;
 }
@@ -144,11 +178,18 @@ int main()
     Matrix* v1 = createRandomVector(VEC_SIZE);
     Matrix* v2 = createRandomVector(VEC_SIZE);
 
-    v1->PrintMatrix();
-    //multiVec(*v1,*v2)->PrintMatrix();
+    double t1=0,t2=0;
 
+    Matrix* res;
 
+    res = multiVec123(*v1,*v2);
+    delete res;
 
+    res = multiVecOMP123(*v1,*v2);
+    delete res;
+
+    res = multiVecSIMD123(*v1,*v2);
+    delete res;
 
     delete v1,v2;
     return 0;

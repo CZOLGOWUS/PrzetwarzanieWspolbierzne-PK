@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/w/Studia/semestr 6/Przetwarzanie wspolbierzne/labs/7/src/fib.cpp
+iostream
+-
+string
+-
+omp.h
+-
+

@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named fib
+
+# Build rule for target.
+fib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fib
+.PHONY : fib
+
+# fast build rule for target.
+fib/fast:
+	$(MAKE) -f CMakeFiles/fib.dir/build.make CMakeFiles/fib.dir/build
+.PHONY : fib/fast
+
+#=============================================================================
 # Target rules for targets named lab7
 
 # Build rule for target.
@@ -135,6 +148,33 @@ matrix: cmake_check_build_system
 matrix/fast:
 	$(MAKE) -f include/matrix/CMakeFiles/matrix.dir/build.make include/matrix/CMakeFiles/matrix.dir/build
 .PHONY : matrix/fast
+
+src/fib.o: src/fib.cpp.o
+
+.PHONY : src/fib.o
+
+# target to build an object file
+src/fib.cpp.o:
+	$(MAKE) -f CMakeFiles/fib.dir/build.make CMakeFiles/fib.dir/src/fib.cpp.o
+.PHONY : src/fib.cpp.o
+
+src/fib.i: src/fib.cpp.i
+
+.PHONY : src/fib.i
+
+# target to preprocess a source file
+src/fib.cpp.i:
+	$(MAKE) -f CMakeFiles/fib.dir/build.make CMakeFiles/fib.dir/src/fib.cpp.i
+.PHONY : src/fib.cpp.i
+
+src/fib.s: src/fib.cpp.s
+
+.PHONY : src/fib.s
+
+# target to generate assembly for a file
+src/fib.cpp.s:
+	$(MAKE) -f CMakeFiles/fib.dir/build.make CMakeFiles/fib.dir/src/fib.cpp.s
+.PHONY : src/fib.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -171,8 +211,12 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... fib"
 	@echo "... lab7"
 	@echo "... matrix"
+	@echo "... src/fib.o"
+	@echo "... src/fib.i"
+	@echo "... src/fib.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

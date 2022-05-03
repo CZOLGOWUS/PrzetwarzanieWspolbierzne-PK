@@ -3,11 +3,13 @@ cmake_minimum_required(VERSION 3.16.3)
 project(lab7)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(fib src/fib.cpp)
 
 
 find_package(OpenMP)
 if(OpenMP_CXX_FOUND)
     target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX matrix)
+    target_link_libraries(fib PUBLIC OpenMP::OpenMP_CXX)
 endif()
 
 #----------------------------------------------------------builds library----------------------------------------------------------

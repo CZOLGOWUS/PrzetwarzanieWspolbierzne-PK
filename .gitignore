@@ -3,5 +3,5 @@ wyklady
 labs/nagrane
 *.zip
 */build
-*/.idea
-*/target
+.idea
+target

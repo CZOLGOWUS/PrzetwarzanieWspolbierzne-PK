@@ -9,7 +9,7 @@ public class Main
     {
         if(args.length != 7)
         {
-            throw new IllegalArgumentException("prog <VECTOR_SIZE> <THREAD_FRAME> <NUMBER_OF_THREADS> <IMAGE_N_SIZE> <IMAGE_M_SIZE> <TEMP>");
+            throw new IllegalArgumentException("prog |ZAD1| <VECTOR_SIZE> <THREAD_FRAME> |ZAD2| <NUMBER_OF_THREADS> <IMAGE_N_SIZE> <IMAGE_M_SIZE> |ZAD3| <SIZE_OF_START_ARRAY> <NUMBERS_PER_THREAD>");
         }
 
         final int vecSize = Integer.parseInt(args[0]);

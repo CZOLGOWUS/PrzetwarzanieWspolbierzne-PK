@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "mpi.h"
+#include "/usr/include/mpi/mpi.h"
 
 
 struct fabric{

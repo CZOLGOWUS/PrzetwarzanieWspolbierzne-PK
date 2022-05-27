@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "/usr/include/mpi/mpi.h"
+#include "mpi.h"
 
-
-struct fabric{
+struct fabric
+{
     int width;
     int height;
     char color[10];
@@ -28,19 +28,25 @@ int main(int argc, char **argv)
     strcpy(f1.material, "cotton");
 
     MPI_Status status;
-    MPI_Init(&argc,&argv);
-    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
-    MPI_Comm_size(MPI_COMM_WORLD,&size);
+    MPI_Init(&argc, &argv);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    if(rank == size - 1){
+    if (rank == size - 1)
+    {
         prevrank = rank - 1;
-        nextrank = 0;}
-    else if(rank == 0){
+        nextrank = 0;
+    }
+    else if (rank == 0)
+    {
         prevrank = size - 1;
-        nextrank = rank + 1;}
-    else{
+        nextrank = rank + 1;
+    }
+    else
+    {
         prevrank = rank - 1;
-        nextrank = rank + 1;}
+        nextrank = rank + 1;
+    }
 
     offsets[0] = 0;
 
@@ -53,32 +59,38 @@ int main(int argc, char **argv)
     MPI_Type_extent(MPI_CHAR, &extent);
     offsets[3] = offsets[2] + 10 * extent;
 
-    int blockcounts[] = {1,1,10,10};
-    MPI_Datatype oldtypes[] = {MPI_INT,MPI_INT,MPI_CHAR,MPI_CHAR};
+    int blockcounts[] = {1, 1, 10, 10};
+    MPI_Datatype oldtypes[] = {MPI_INT, MPI_INT, MPI_CHAR, MPI_CHAR};
 
     MPI_Type_struct(4, blockcounts, offsets, oldtypes, &fabric_type);
     MPI_Type_commit(&fabric_type);
 
-    if(rank == 0){
+    printf("proces with rank: %d\n",rank);
+    if (rank == 0)
+    {
+        
         start = MPI_Wtime();
 
-        MPI_Send(&f1,1,fabric_type,nextrank,0,MPI_COMM_WORLD);
-        MPI_Recv(&f2,1,fabric_type,prevrank,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
+        MPI_Send(&f1, 1, fabric_type, nextrank, 0, MPI_COMM_WORLD);
+        MPI_Recv(&f2, 1, fabric_type, prevrank, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 
         stop = MPI_Wtime();
 
         printf("rank = %d :\n\twidth = %d\n\theight = %d\n\tcolor = %s\n\tmaterial = %s\n",
-                rank, f2.width, f2.height, f2.color, f2.material);
-		printf("time = %f\n", stop - start );
+               rank, f2.width, f2.height, f2.color, f2.material);
+        printf("time = %f\n", stop - start);
 
-        FILE* wfp = fopen("./dane_3.csv", "a+");
-        fprintf(wfp, "%d,%lf\n", size, stop - start);}
+        FILE *wfp = fopen("./dane_3.csv", "a+");
+        fprintf(wfp, "%d,%lf\n", size, stop - start);
+    }
 
-    else{
-		MPI_Recv(&f2,1,fabric_type,prevrank,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
-		MPI_Send(&f2,1,fabric_type,nextrank,0,MPI_COMM_WORLD);}
+    else
+    {
+        MPI_Recv(&f2, 1, fabric_type, prevrank, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+        MPI_Send(&f2, 1, fabric_type, nextrank, 0, MPI_COMM_WORLD);
+    }
 
-	MPI_Finalize();
+    MPI_Finalize();
 
-	return(0); 
+    return (0);
 }

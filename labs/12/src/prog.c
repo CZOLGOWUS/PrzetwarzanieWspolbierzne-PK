@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 
     if(argc != 2)
     {
-        printf("bad invocation: <PROGRAM> <rangeAY_LENGTH>");
+        printf("bad invocation: <PROGRAM> <SERIES_LENGTH>");
         exit(EXIT_FAILURE);
     }
 
@@ -89,7 +89,7 @@ int main(int argc, char **argv)
 
         result = 4 * result;
 
-        printf("result = %f\n",result);
+        printf("pi approximation = %f\n",result);
     }
     else
     {

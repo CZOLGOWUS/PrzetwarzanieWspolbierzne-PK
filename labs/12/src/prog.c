@@ -71,11 +71,11 @@ int main(int argc, char **argv)
 
         for (size_t i = 1; i < size; i++)
         {
-            MPI_Recv(&process_res, 1, range_type, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            MPI_Recv(&process_res, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             result += process_res;
         }
 
-        // adding the rest of the rangeay (remaining part)
+        // adding the rest of the range (remaining part)
         for (size_t i = array_length - remainingRange; i < array_length; i++)
         {
             short znak;
@@ -99,10 +99,10 @@ int main(int argc, char **argv)
         for(size_t i = range.begin; i <= range.end; i++)
         {
             znak = (i % 2) == 0 ? 1 : -1;
-            process_res += znak*(1.0 /( 2.0 * i + 1.0 )); // tu nie ... -1.0 ?
+            process_res += znak*(1.0 /( 2.0 * i + 1.0 ));
         }
 
-        MPI_Send(&process_res, 1, range_type, 0, 0, MPI_COMM_WORLD);
+        MPI_Send(&process_res, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
     }
 
     MPI_Finalize();
